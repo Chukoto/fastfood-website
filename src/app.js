@@ -4,6 +4,9 @@ class IndexView {
       this.onRouteChange(e)
     );
     this.slot = document.querySelector('#slot');
+
+    const hashLocation = window.location.hash.substr(1);
+    this.loadContent(hashLocation);
   }
 
   onRouteChange(e) {
