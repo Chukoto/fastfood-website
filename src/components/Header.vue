@@ -35,7 +35,11 @@
     </div>
     <div class="hidden-sm-and-up">
       <v-row class="my-2 text-center align-center">
-        <v-col><v-app-bar-nav-icon></v-app-bar-nav-icon></v-col>
+        <v-col
+          ><v-app-bar-nav-icon
+            @click="toggleSideNav"
+          ></v-app-bar-nav-icon
+        ></v-col>
         <v-col
           ><a><img :src="path" alt="ページのロゴ" width="65"/></a
         ></v-col>
@@ -47,6 +51,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'Header',
   data() {
@@ -59,6 +64,9 @@ export default {
       mediumScreen: 'hidden-md-and-up hidden-xs-only',
       largeScreen: 'hidden-sm-and-up',
     };
+  },
+  methods: {
+    ...mapActions(['toggleSideNav']),
   },
 };
 </script>
