@@ -236,7 +236,6 @@ p {
   bottom: 9vw;
   right: -30px;
   z-index: 3;
-  cursor: pointer;
 
   /* バーガーセットのスライドアニメ */
   animation-name: slide-to-left;
