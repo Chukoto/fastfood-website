@@ -19,8 +19,9 @@
               <v-list-item-content>
                 <v-list-item-title
                   v-text="burger.text"
-                  class="font-weight-bold text-h5"
+                  :class="`font-weight-bold text-h5 ${burger.name}`"
                   @click="showBurgerImg(burger.name)"
+                  @mousedown="deleteShowUp()"
                 ></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -43,6 +44,7 @@
             <img
               :src="require(`../assets/${currentItem}.png`)"
               :alt="`${currentItem}の画像`"
+              class="food-img"
             />
           </p>
         </div>
@@ -112,7 +114,13 @@ export default {
   },
   methods: {
     showBurgerImg: function(itemName) {
+      const foodImg = this.$el.querySelector('.food-img');
+      foodImg.classList.add('show-up');
       this.currentItem = itemName;
+    },
+    deleteShowUp: function() {
+      const foodImg = this.$el.querySelector('.food-img');
+      foodImg.classList.remove('show-up');
     },
 
     showOtherImg: function(itemName) {
@@ -123,6 +131,7 @@ export default {
 </script>
 
 <style>
+@import '../assets/keyframes/animation.css';
 #menu-background {
   position: relative;
 }
@@ -158,5 +167,11 @@ p {
   margin-top: -13px;
   margin-left: -36px;
   width: 120vw;
+}
+
+.show-up {
+  animation-name: show-up;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 </style>
