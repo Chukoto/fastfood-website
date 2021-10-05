@@ -46,6 +46,15 @@ Home.vueのアニメーション
   }
 }
 
+@keyframes clear-to-bottom {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes clear-to-right {
   0% {
     transform: translateX(0%);
