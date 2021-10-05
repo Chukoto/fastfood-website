@@ -17,8 +17,8 @@
             alt="バーガーセットの画像"
             class="combo-img"
           />
-          <button @click="enter" class="white--text">
-            Click Me!
+          <button class="view-menu-btn" @click="enter">
+            VIEW OUR MENU
           </button>
         </p>
         <p class="hidden-sm-and-up">
@@ -32,8 +32,8 @@
             alt="バーガーセットの画像"
             class="combo-img"
           />
-          <button @click="enter" class="white--text">
-            Click Me!
+          <button class="view-menu-btn" @click="enter">
+            VIEW OUR MENU
           </button>
         </p>
       </div>
@@ -158,6 +158,7 @@ h1 span {
 }
 
 .small-device {
+  margin-top: -13px;
   margin-left: -36px;
   width: 120vw;
 
@@ -210,5 +211,20 @@ p {
   animation-name: clear-to-left;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+}
+
+.view-menu-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  color: #b60000;
+  background-color: #dedede;
+  font-weight: bold;
+  font-size: 2vw;
+  border: 0.4vw solid #b60000;
+  border-radius: 7px;
+  padding: 1.2vw 7vw;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 </style>
