@@ -42,10 +42,13 @@
         <div class="picture-area">
           <p class="burger-picture">
             <img
-              :src="require(`../assets/${currentItem}.png`)"
-              :alt="`${currentItem}の画像`"
-              class="food-img"
+              :src="require(`../assets/${currentBurger}.png`)"
+              :alt="`${currentBurger}の画像`"
+              class="burger-img"
             />
+          </p>
+          <p class="other-picture">
+            <img />
           </p>
         </div>
       </div>
@@ -58,7 +61,7 @@
           />
         </p>
       </div>
-      <h2>{{ currentItem }}</h2>
+      <h2>{{ currentBurger }}</h2>
     </div>
   </div>
 </template>
@@ -69,7 +72,8 @@ export default {
   data() {
     return {
       selectedItem: 0,
-      currentItem: 'doubledouble',
+      currentBurger: 'doubledouble',
+      currentOther: '',
       burgers: [
         {
           name: 'doubledouble',
@@ -114,17 +118,17 @@ export default {
   },
   methods: {
     showBurgerImg: function(itemName) {
-      const foodImg = this.$el.querySelector('.food-img');
-      foodImg.classList.add('show-up');
-      this.currentItem = itemName;
+      const burgerImg = this.$el.querySelector('.burger-img');
+      burgerImg.classList.add('show-up');
+      this.currentBurger = itemName;
     },
     deleteShowUp: function() {
-      const foodImg = this.$el.querySelector('.food-img');
-      foodImg.classList.remove('show-up');
+      const burgerImg = this.$el.querySelector('.burger-img');
+      burgerImg.classList.remove('show-up');
     },
 
     showOtherImg: function(itemName) {
-      this.currentItem = itemName;
+      this.currentOther = itemName;
     },
   },
 };
@@ -144,17 +148,18 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .picture-area {
   position: absolute;
-  top: 50px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .burger-picture img {
-  width: 100%;
+  width: 65vw;
 }
 
 .normal-device {
