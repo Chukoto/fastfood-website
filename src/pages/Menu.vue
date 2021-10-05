@@ -1,37 +1,62 @@
 <template>
   <div>
     <div id="menu-background">
-      <p class="hidden-xs-only">
-        <img
-          src="../assets/pc-menu-bg.jpg"
-          alt="Menuの背景画像"
-          class="normal-device"
-        />
+      <div class="hidden-xs-only">
+        <p>
+          <img
+            src="../assets/pc-menu-bg.jpg"
+            alt="Menuの背景画像"
+            class="normal-device"
+          />
+        </p>
 
         <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
           <v-list-item-group v-model="selectedItem" color="#b60000">
             <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-              :to="item.anchor"
+              v-for="(burger, i) in burgers"
+              :key="`first-${i}`"
+            >
+              <v-list-item-content>
+                <v-list-item-title
+                  v-text="burger.text"
+                  class="font-weight-bold text-h5"
+                  @click="showBurgerImg(burger.name)"
+                ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item
+              v-for="(item, j) in otherItems"
+              :key="`second-${j}`"
             >
               <v-list-item-content>
                 <v-list-item-title
                   v-text="item.text"
-                  class="font-weight-bold text-h6"
+                  class="font-weight-bold text-h5"
+                  @click="showOtherImg(item.name)"
                 ></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-item-group>
         </v-list>
-      </p>
-      <p class="hidden-sm-and-up">
-        <img
-          src="../assets/pc-menu-bg.jpg"
-          alt="Menuの背景画像"
-          class="small-device"
-        />
-      </p>
+        <div class="picture-area">
+          <p class="burger-picture">
+            <img
+              :src="require(`../assets/${currentItem}.png`)"
+              :alt="`${currentItem}の画像`"
+            />
+          </p>
+        </div>
+      </div>
+      <div class="hidden-sm-and-up">
+        <p>
+          <img
+            src="../assets/pc-menu-bg.jpg"
+            alt="Menuの背景画像"
+            class="small-device"
+          />
+        </p>
+      </div>
+      <h2>{{ currentItem }}</h2>
     </div>
   </div>
 </template>
@@ -42,20 +67,66 @@ export default {
   data() {
     return {
       selectedItem: 0,
-      items: [
-        { text: 'DOUBLE-DOUBLE', anchor: '#double-double' },
-        { text: 'CHEESEBURGER', anchor: '#cheeseburger' },
-        { text: 'HAMBURGER', anchor: '#hamburger' },
-        { text: 'FRENCH FRIES', anchor: '#frenchfries' },
-        { text: 'BEVERAGES', anchor: '#beverages' },
-        { text: 'SHAKES', anchor: '#shakes' },
+      currentItem: 'doubledouble',
+      burgers: [
+        {
+          name: 'doubledouble',
+          text: 'DOUBLE-DOUBLE',
+          anchor: '#doubledouble',
+          imagePath: '../assets/doubledouble.png',
+        },
+        {
+          name: 'cheeseburger',
+          text: 'CHEESEBURGER',
+          anchor: '#cheeseburger',
+          imagePath: '../assets/cheeseburger.png',
+        },
+        {
+          name: 'hamburger',
+          text: 'HAMBURGER',
+          anchor: '#hamburger',
+          imagePath: '../assets/hamburger.png',
+        },
+      ],
+      otherItems: [
+        {
+          name: 'frenchfries',
+          text: 'FRENCH FRIES',
+          anchor: '#frenchfries',
+          imagePath: '',
+        },
+        {
+          name: 'beverages',
+          text: 'BEVERAGES',
+          anchor: '#beverages',
+          imagePath: '',
+        },
+        {
+          name: 'shakes',
+          text: 'SHAKES',
+          anchor: '#shakes',
+          imagePath: '',
+        },
       ],
     };
+  },
+  methods: {
+    showBurgerImg: function(itemName) {
+      this.currentItem = itemName;
+    },
+
+    showOtherImg: function(itemName) {
+      this.currentItem = itemName;
+    },
   },
 };
 </script>
 
 <style>
+#menu-background {
+  position: relative;
+}
+
 p {
   position: relative;
 }
@@ -64,6 +135,17 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.picture-area {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.burger-picture img {
+  width: 100%;
 }
 
 .normal-device {
