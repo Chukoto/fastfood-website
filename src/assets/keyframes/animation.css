@@ -76,3 +76,16 @@ Home.vueのアニメーション
     opacity: 0;
   }
 }
+
+/* ====================
+Menu.vueのアニメーション
+==================== */
+
+@keyframes show-up {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
