@@ -121,6 +121,7 @@ export default {
 </script>
 
 <style>
+@import '../assets/keyframes/animation.css';
 @font-face {
   font-family: Cormorant Garamond;
   src: url('../assets/fonts/CormorantGaramond-SemiBoldItalic.ttf')
@@ -145,15 +146,6 @@ h1 span {
   font-size: 10vw;
 }
 
-@keyframes shrink {
-  0% {
-    width: 120vw;
-  }
-  100% {
-    width: 100vw;
-  }
-}
-
 .normal-device {
   margin-top: -13px;
   margin-left: -12px;
@@ -163,15 +155,6 @@ h1 span {
   animation-name: shrink;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-}
-
-@keyframes expand {
-  0% {
-    width: 100vw;
-  }
-  100% {
-    width: 120vw;
-  }
 }
 
 .small-device {
@@ -188,23 +171,6 @@ p {
   position: relative;
 }
 
-@keyframes clear-blur {
-  0% {
-    -webkit-filter: blur(7px);
-    -moz-filter: blur(7px);
-    -o-filter: blur(7px);
-    -ms-filter: blur(7px);
-    filter: blur(7px);
-  }
-  100% {
-    -webkit-filter: blur(0px);
-    -moz-filter: blur(0px);
-    -o-filter: blur(0px);
-    -ms-filter: blur(0px);
-    filter: blur(0px);
-  }
-}
-
 .clear-blur {
   animation-name: clear-blur;
   animation-duration: 2s;
@@ -219,15 +185,6 @@ p {
   filter: blur(5px);
   position: inherit;
   z-index: 1;
-}
-
-@keyframes slide-to-left {
-  0% {
-    transform: translateX(50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
 }
 
 .combo-img {
@@ -249,31 +206,9 @@ p {
   animation-fill-mode: forwards;
 }
 
-@keyframes clear-to-right {
-  0% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
 .clear-to-left {
   animation-name: clear-to-left;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-}
-
-@keyframes clear-to-left {
-  0% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
 }
 </style>
