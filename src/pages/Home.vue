@@ -52,9 +52,22 @@ export default {
   },
   methods: {
     enter: function() {
+      const viewMenuBtns = this.$el.querySelectorAll(
+        '.view-menu-btn'
+      );
       const comboImgs = this.$el.querySelectorAll('.combo-img');
       const h1 = this.$el.querySelector('h1');
       const homeBGImgs = this.$el.querySelectorAll('.home-bg-img');
+
+      function promiseZero() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            viewMenuBtns.forEach((btn) => {
+              resolve(btn.classList.add('clear-to-bottom'));
+            });
+          }, 500);
+        });
+      }
 
       function promiseOne() {
         return new Promise((resolve) => {
@@ -91,7 +104,11 @@ export default {
         });
       }
 
-      promiseOne()
+      promiseZero()
+        .then((zero) => {
+          console.log(zero);
+          return promiseOne();
+        })
         .then((one) => {
           console.log(one);
           return promiseTwo();
@@ -112,6 +129,9 @@ export default {
           h1.classList.remove('clear-to-left');
           homeBGImgs.forEach((img) => {
             img.classList.remove('clear-blur');
+          });
+          viewMenuBtns.forEach((btn) => {
+            btn.classList.remove('clear-to-bottom');
           });
           return;
         });
@@ -209,6 +229,12 @@ p {
 
 .clear-to-left {
   animation-name: clear-to-left;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.clear-to-bottom {
+  animation-name: clear-to-bottom;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
