@@ -17,6 +17,9 @@
             alt="バーガーセットの画像"
             class="combo-img"
           />
+          <button @click="enter" class="white--text">
+            Click Me!
+          </button>
         </p>
         <p class="hidden-sm-and-up">
           <img
@@ -29,6 +32,9 @@
             alt="バーガーセットの画像"
             class="combo-img"
           />
+          <button @click="enter" class="white--text">
+            Click Me!
+          </button>
         </p>
       </div>
     </div>
@@ -38,6 +44,79 @@
 <script>
 export default {
   name: 'Home',
+  data() {
+    return {};
+  },
+  mounted() {
+    // window.addEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    enter: function() {
+      const comboImgs = this.$el.querySelectorAll('.combo-img');
+      const h1 = this.$el.querySelector('h1');
+      const homeBGImgs = this.$el.querySelectorAll('.home-bg-img');
+
+      function promiseOne() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            comboImgs.forEach((img) => {
+              resolve(img.classList.add('clear-to-right'));
+            });
+          }, 500);
+        });
+      }
+
+      function promiseTwo() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(h1.classList.add('clear-to-left'));
+          }, 500);
+        });
+      }
+
+      function promiseThree() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            homeBGImgs.forEach((img) => {
+              resolve(img.classList.add('clear-blur'));
+            });
+          }, 1200);
+        });
+      }
+      function promiseFour() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, 3000);
+        });
+      }
+
+      promiseOne()
+        .then((one) => {
+          console.log(one);
+          return promiseTwo();
+        })
+        .then((two) => {
+          console.log(two);
+          return promiseThree();
+        })
+        .then((three) => {
+          console.log(three);
+          return promiseFour();
+        })
+        .then((four) => {
+          console.log(four);
+          comboImgs.forEach((img) => {
+            img.classList.remove('clear-to-right');
+          });
+          h1.classList.remove('clear-to-left');
+          homeBGImgs.forEach((img) => {
+            img.classList.remove('clear-blur');
+          });
+          return;
+        });
+    },
+  },
 };
 </script>
 
@@ -109,6 +188,29 @@ p {
   position: relative;
 }
 
+@keyframes clear-blur {
+  0% {
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+  }
+}
+
+.clear-blur {
+  animation-name: clear-blur;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
 .home-bg-img {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
@@ -134,10 +236,45 @@ p {
   bottom: 9vw;
   right: -30px;
   z-index: 3;
+  cursor: pointer;
 
   /* バーガーセットのスライドアニメ */
   animation-name: slide-to-left;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+}
+
+.clear-to-right {
+  animation-name: clear-to-right;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes clear-to-right {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.clear-to-left {
+  animation-name: clear-to-left;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes clear-to-left {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
 </style>
