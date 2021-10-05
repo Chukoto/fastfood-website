@@ -1,0 +1,78 @@
+/* ====================
+Home.vueのアニメーション
+==================== */
+
+@keyframes shrink {
+  0% {
+    width: 120vw;
+  }
+  100% {
+    width: 100vw;
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 100vw;
+  }
+  100% {
+    width: 120vw;
+  }
+}
+
+@keyframes clear-blur {
+  0% {
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+  }
+}
+
+@keyframes slide-to-left {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes clear-to-bottom {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes clear-to-right {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes clear-to-left {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
