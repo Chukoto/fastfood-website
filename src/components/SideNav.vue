@@ -9,14 +9,17 @@
       <v-list dense>
         <v-row class="my-1 text-center">
           <v-col>
-            <a><img :src="path" alt="ページのロゴ" width="65"/></a>
+            <router-link :to="'/'">
+              <img :src="logoPath" alt="ページのロゴ" width="65" />
+            </router-link>
           </v-col>
           <v-list-item
             v-for="(sidenavMenu, index) in sidenavMenuList"
             :key="index"
+            :to="sidenavMenu.link"
           >
             <v-col>
-              <a>{{ sidenavMenu }}</a>
+              <a>{{ sidenavMenu.title }}</a>
             </v-col>
           </v-list-item>
         </v-row>
@@ -30,9 +33,14 @@ export default {
   name: 'SideNav',
   data() {
     return {
-      path:
+      logoPath:
         'https://www.in-n-out.com/ResourcePackages/INNOUT/content/images/logo-2021.svg?package=INNOUT',
-      sidenavMenuList: ['MENU', 'HISTORY', 'EMPLOYMENT', 'CONTACT'],
+      sidenavMenuList: [
+        { title: 'MENU', link: { name: 'Menu' } },
+        { title: 'HISTORY', link: { name: 'Menu' } },
+        { title: 'EMPLOYMENT', link: { name: 'Menu' } },
+        { title: 'CONTACT', link: { name: 'Menu' } },
+      ],
     };
   },
 };
