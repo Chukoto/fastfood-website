@@ -57,6 +57,7 @@
           </p>
           <button
             v-on:click="show = !show"
+            v-show="show"
             style="background-color: pink; width: 100px; height: 100px"
           >
             cross
@@ -172,16 +173,28 @@ p {
 }
 
 .modal-window {
-  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.other-picture {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .other-picture img {
   position: fixed;
-  top: 160px;
   left: 50%;
   transform: translateX(-50%);
+  padding: 0vw 2vw 12vw;
+  background-color: #fff;
   width: 45vw;
   z-index: 2;
+  border: 5px solid #b60000;
 }
 
 .burger-picture img {
