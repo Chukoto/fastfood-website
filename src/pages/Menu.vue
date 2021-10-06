@@ -47,9 +47,20 @@
               class="burger-img"
             />
           </p>
-          <p class="other-picture">
-            <img />
+        </div>
+        <div class="modal-window">
+          <p class="other-picture" v-show="show">
+            <img
+              :src="require(`../assets/${currentOther}.png`)"
+              :alt="`${currentOther}の画像`"
+            />
           </p>
+          <button
+            v-on:click="show = !show"
+            style="background-color: pink; width: 100px; height: 100px"
+          >
+            cross
+          </button>
         </div>
       </div>
       <div class="hidden-sm-and-up">
@@ -73,7 +84,8 @@ export default {
     return {
       selectedItem: 0,
       currentBurger: 'doubledouble',
-      currentOther: '',
+      currentOther: 'frenchfries',
+      show: false,
       burgers: [
         {
           name: 'doubledouble',
@@ -129,6 +141,7 @@ export default {
 
     showOtherImg: function(itemName) {
       this.currentOther = itemName;
+      this.show = true;
     },
   },
 };
@@ -156,6 +169,19 @@ p {
   top: 100px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.modal-window {
+  position: relative;
+}
+
+.other-picture img {
+  position: fixed;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45vw;
+  z-index: 2;
 }
 
 .burger-picture img {
