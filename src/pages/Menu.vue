@@ -1,79 +1,82 @@
 <template>
-  <div>
-    <div id="menu-background">
-      <div class="hidden-xs-only">
-        <p>
-          <img
-            src="../assets/pc-menu-bg.jpg"
-            alt="Menuの背景画像"
-            class="normal-device"
-          />
-        </p>
+  <div id="menu-background">
+    <div class="hidden-xs-only">
+      <p>
+        <img
+          src="../assets/pc-menu-bg.jpg"
+          alt="Menuの背景画像"
+          class="normal-device"
+        />
+      </p>
 
-        <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
-          <v-list-item-group v-model="selectedItem" color="#b60000">
-            <v-list-item
-              v-for="(burger, i) in burgers"
-              :key="`first-${i}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title
-                  v-text="burger.text"
-                  :class="`font-weight-bold text-h5 ${burger.name}`"
-                  @click="showBurgerImg(burger.name)"
-                  @mousedown="deleteShowUp()"
-                ></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item
-              v-for="(item, j) in otherItems"
-              :key="`second-${j}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title
-                  v-text="item.text"
-                  class="font-weight-bold text-h5"
-                  @click="showOtherImg(item.name)"
-                ></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-        <div class="picture-area">
-          <p class="burger-picture">
-            <img
-              :src="require(`../assets/${currentBurger}.png`)"
-              :alt="`${currentBurger}の画像`"
-              class="burger-img"
-            />
-          </p>
-        </div>
-        <div class="modal-window">
-          <p class="other-picture" v-show="show">
-            <img
-              :src="require(`../assets/${currentOther}.png`)"
-              :alt="`${currentOther}の画像`"
-            />
-          </p>
-          <button
-            v-on:click="show = !show"
-            v-show="show"
-            style="background-color: pink; width: 100px; height: 100px"
+      <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
+        <v-list-item-group v-model="selectedItem" color="#b60000">
+          <v-list-item
+            v-for="(burger, i) in burgers"
+            :key="`first-${i}`"
           >
-            cross
-          </button>
-        </div>
-      </div>
-      <div class="hidden-sm-and-up">
-        <p>
+            <v-list-item-content>
+              <v-list-item-title
+                v-text="burger.text"
+                :class="`font-weight-bold text-h5 ${burger.name}`"
+                @click="showBurgerImg(burger.name)"
+                @mousedown="deleteShowUp()"
+              ></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            v-for="(item, j) in otherItems"
+            :key="`second-${j}`"
+          >
+            <v-list-item-content>
+              <v-list-item-title
+                v-text="item.text"
+                class="font-weight-bold text-h5"
+                @click="
+                  showOtherImg(item.name, item.description, item.text)
+                "
+              ></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <p class="burger-name">{{ currentBurger.toUpperCase() }}</p>
+      <div class="picture-area">
+        <p class="burger-picture">
           <img
-            src="../assets/pc-menu-bg.jpg"
-            alt="Menuの背景画像"
-            class="small-device"
+            :src="require(`../assets/${currentBurger}.png`)"
+            :alt="`${currentBurger}の画像`"
+            class="burger-img"
           />
         </p>
       </div>
-      <h2>{{ currentBurger }}</h2>
+      <transition>
+        <div class="modal-window" v-show="show">
+          <div class="mask" v-on:click="show = !show">
+            <div class="other-picture">
+              <img
+                :src="require(`../assets/${currentOther}.png`)"
+                :alt="`${currentOther}の画像`"
+              />
+              <div class="other-description">
+                <h2 class="text-center mb-1">
+                  {{ currentTitle }}
+                </h2>
+                {{ currentDescription }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div class="hidden-sm-and-up">
+      <p>
+        <img
+          src="../assets/pc-menu-bg.jpg"
+          alt="Menuの背景画像"
+          class="small-device"
+        />
+      </p>
     </div>
   </div>
 </template>
@@ -86,45 +89,41 @@ export default {
       selectedItem: 0,
       currentBurger: 'doubledouble',
       currentOther: 'frenchfries',
+      currentTitle: '',
+      currentDescription: '',
       show: false,
       burgers: [
         {
           name: 'doubledouble',
           text: 'DOUBLE-DOUBLE',
-          anchor: '#doubledouble',
-          imagePath: '../assets/doubledouble.png',
         },
         {
           name: 'cheeseburger',
           text: 'CHEESEBURGER',
-          anchor: '#cheeseburger',
-          imagePath: '../assets/cheeseburger.png',
         },
         {
           name: 'hamburger',
           text: 'HAMBURGER',
-          anchor: '#hamburger',
-          imagePath: '../assets/hamburger.png',
         },
       ],
       otherItems: [
         {
           name: 'frenchfries',
           text: 'FRENCH FRIES',
-          anchor: '#frenchfries',
-          imagePath: '',
+          description:
+            'FRESH, HAND-CUT POTATOES PREPARED IN 100% SUNFLOWER OIL',
         },
         {
           name: 'beverages',
           text: 'BEVERAGES',
-          anchor: '#beverages',
-          imagePath: '',
+          description:
+            'REFRESHING SELECTIONS INCLUDE COCA-COLA®, DIET COKE®, 7UP®, DR. PEPPER®, ROOT BEER, PINK LEMONADE, MINUTE MAID® ZERO SUGAR LEMONADE, ICED TEA, MILK, COFFEE AND HOT COCOA',
         },
         {
           name: 'shakes',
           text: 'SHAKES',
-          anchor: '#shakes',
-          imagePath: '',
+          description:
+            'CHOCOLATE, STRAWBERRY OR VANILLA MADE WITH REAL ICE CREAM',
         },
       ],
     };
@@ -132,29 +131,31 @@ export default {
   methods: {
     showBurgerImg: function(itemName) {
       const burgerImg = this.$el.querySelector('.burger-img');
+      const burgerName = this.$el.querySelector('.burger-name');
       burgerImg.classList.add('show-up');
+      burgerName.classList.add('show-up');
       this.currentBurger = itemName;
     },
     deleteShowUp: function() {
       const burgerImg = this.$el.querySelector('.burger-img');
+      const burgerName = this.$el.querySelector('.burger-name');
       burgerImg.classList.remove('show-up');
+      burgerName.classList.remove('show-up');
     },
 
-    showOtherImg: function(itemName) {
-      this.currentOther = itemName;
+    showOtherImg: function(name, description, text) {
+      this.currentOther = name;
+      this.currentDescription = description;
+      this.currentTitle = text;
       this.show = true;
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 @import '../assets/keyframes/animation.css';
 #menu-background {
-  position: relative;
-}
-
-p {
   position: relative;
 }
 
@@ -162,7 +163,20 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
+}
+
+.burger-name {
+  position: absolute;
+  top: 0;
+  left: 33%;
+  font-size: 5vw;
+  font-weight: bold;
+  color: #b60000;
+}
+
+.burger-picture img {
+  width: 65vw;
 }
 
 .picture-area {
@@ -181,24 +195,50 @@ p {
 
 .other-picture {
   position: fixed;
-  top: 150px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
+  background-color: #fff;
+  width: 50vw;
+  height: 43vw;
+  border: 5px solid #b60000;
+  border-radius: 10px;
+  z-index: 2;
 }
 
 .other-picture img {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0vw 2vw 12vw;
-  background-color: #fff;
-  width: 45vw;
-  z-index: 2;
-  border: 5px solid #b60000;
+  margin-top: 20px;
+  width: 37vw;
+  height: auto;
 }
 
-.burger-picture img {
-  width: 65vw;
+.other-description {
+  position: absolute;
+  left: 50%;
+  top: 27vw;
+  font-size: 1.2vw;
+  transform: translateX(-50%);
+  width: 37vw;
+  height: auto;
+  background-color: #c62828;
+  color: #fff;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+}
+
+.mask {
+  position: fixed;
+  top: -100%;
+  left: -50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.2);
+  width: 3000px;
+  height: 3000px;
+  z-index: 3;
 }
 
 .normal-device {
