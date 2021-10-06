@@ -65,7 +65,7 @@ export default {
             viewMenuBtns.forEach((btn) => {
               resolve(btn.classList.add('clear-to-bottom'));
             });
-          }, 500);
+          }, 250);
         });
       }
 
@@ -75,7 +75,7 @@ export default {
             comboImgs.forEach((img) => {
               resolve(img.classList.add('clear-to-right'));
             });
-          }, 500);
+          }, 400);
         });
       }
 
@@ -83,7 +83,7 @@ export default {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve(h1.classList.add('clear-to-left'));
-          }, 500);
+          }, 400);
         });
       }
 
@@ -93,14 +93,14 @@ export default {
             homeBGImgs.forEach((img) => {
               resolve(img.classList.add('clear-blur'));
             });
-          }, 1200);
+          }, 300);
         });
       }
       function promiseFour() {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve();
-          }, 3000);
+          }, 1000);
         });
       }
 
@@ -122,17 +122,18 @@ export default {
           return promiseFour();
         })
         .then((four) => {
+          location.href = 'http://localhost:8080/menu';
           console.log(four);
-          comboImgs.forEach((img) => {
-            img.classList.remove('clear-to-right');
-          });
-          h1.classList.remove('clear-to-left');
-          homeBGImgs.forEach((img) => {
-            img.classList.remove('clear-blur');
-          });
-          viewMenuBtns.forEach((btn) => {
-            btn.classList.remove('clear-to-bottom');
-          });
+          // comboImgs.forEach((img) => {
+          //   img.classList.remove('clear-to-right');
+          // });
+          // h1.classList.remove('clear-to-left');
+          // homeBGImgs.forEach((img) => {
+          //   img.classList.remove('clear-blur');
+          // });
+          // viewMenuBtns.forEach((btn) => {
+          //   btn.classList.remove('clear-to-bottom');
+          // });
           return;
         });
     },
