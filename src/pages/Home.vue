@@ -140,7 +140,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import '../assets/keyframes/animation.css';
 @font-face {
   font-family: Cormorant Garamond;
