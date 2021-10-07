@@ -25,9 +25,11 @@
     </div>
     <div class="hidden-md-and-up hidden-xs-only">
       <v-row class="my-2 text-center align-center">
-        <v-col
-          ><a><img :src="logoPath" alt="ページのロゴ" width="80"/></a
-        ></v-col>
+        <v-col>
+          <router-link :to="'/'">
+            <img :src="logoPath" alt="ページのロゴ" width="80" />
+          </router-link>
+        </v-col>
         <v-col
           v-for="(headerMenu, index) in headerMenuList"
           :key="index"
@@ -52,9 +54,11 @@
             @click="toggleSideNav"
           ></v-app-bar-nav-icon
         ></v-col>
-        <v-col
-          ><a><img :src="logoPath" alt="ページのロゴ" width="65"/></a
-        ></v-col>
+        <v-col>
+          <router-link :to="'/'">
+            <img :src="logoPath" alt="ページのロゴ" width="65" />
+          </router-link>
+        </v-col>
         <v-spacer></v-spacer>
       </v-row>
       <v-divider></v-divider>
