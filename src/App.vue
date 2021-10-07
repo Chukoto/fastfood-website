@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header />
-    <SideNav />
+    <SideNav style="position:relative; z-index: 9999;" />
     <v-container fluid>
       <v-main>
         <router-view />
