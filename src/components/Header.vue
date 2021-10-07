@@ -76,9 +76,7 @@ export default {
       this.preScrollY = this.currentScrollY;
       this.currentScrollY = window.scrollY;
       console.log(window.scrollY);
-      if (this.currentScrollY <= 60) {
-        header.classList.remove('fold');
-      } else if (this.preScrollY < this.currentScrollY) {
+      if (this.preScrollY < this.currentScrollY) {
         header.classList.remove('fold');
         header.classList.add('open');
       } else {
