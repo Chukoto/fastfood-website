@@ -57,7 +57,7 @@ export default {
         { title: 'MENU', link: { name: 'Menu' } },
         { title: 'HISTORY', link: { name: 'Menu' } },
         { title: 'EMPLOYMENT', link: { name: 'Menu' } },
-        { title: 'CONTACT', link: { name: 'Menu' } },
+        { title: 'CONTACT', link: { name: 'Contact' } },
       ],
       smallScreen: 'hidden-sm-and-down',
       mediumScreen: 'hidden-md-and-up hidden-xs-only',
