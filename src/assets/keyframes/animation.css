@@ -3,6 +3,10 @@
   margin-top: 112px;
 }
 
+.space-for-header-mb {
+  margin-top: -18px;
+}
+
 /* ====================
 Header.vueのアニメーション
 ==================== */
