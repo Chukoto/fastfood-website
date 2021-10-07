@@ -1,42 +1,40 @@
 <template>
-  <div>
-    <div>
-      <div id="images-area">
-        <h1 class="text-center">
-          <span>QUALITY</span><br />
-          YOU CAN TASTE
-        </h1>
-        <p class="hidden-xs-only">
-          <img
-            src="../assets/home-bg.jpg"
-            alt="Homeの背景画像"
-            class="normal-device home-bg-img"
-          />
-          <img
-            src="../assets/combo.png"
-            alt="バーガーセットの画像"
-            class="combo-img"
-          />
-          <button class="view-menu-btn" @click="enter">
-            VIEW OUR MENU
-          </button>
-        </p>
-        <p class="hidden-sm-and-up">
-          <img
-            src="../assets/home-bg.jpg"
-            alt="Homeの背景画像"
-            class="small-device home-bg-img"
-          />
-          <img
-            src="../assets/combo.png"
-            alt="バーガーセットの画像"
-            class="combo-img"
-          />
-          <button class="view-menu-btn" @click="enter">
-            VIEW OUR MENU
-          </button>
-        </p>
-      </div>
+  <div class="space-for-header">
+    <div id="images-area">
+      <h1 class="text-center">
+        <span>QUALITY</span><br />
+        YOU CAN TASTE
+      </h1>
+      <p class="hidden-xs-only">
+        <img
+          src="../assets/home-bg.jpg"
+          alt="Homeの背景画像"
+          class="normal-device home-bg-img"
+        />
+        <img
+          src="../assets/combo.png"
+          alt="バーガーセットの画像"
+          class="combo-img"
+        />
+        <button class="view-menu-btn" @click="enter">
+          VIEW OUR MENU
+        </button>
+      </p>
+      <p class="hidden-sm-and-up">
+        <img
+          src="../assets/home-bg.jpg"
+          alt="Homeの背景画像"
+          class="small-device home-bg-img"
+        />
+        <img
+          src="../assets/combo.png"
+          alt="バーガーセットの画像"
+          class="combo-img"
+        />
+        <button class="view-menu-btn" @click="enter">
+          VIEW OUR MENU
+        </button>
+      </p>
     </div>
   </div>
 </template>
