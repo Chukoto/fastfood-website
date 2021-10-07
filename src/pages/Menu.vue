@@ -1,154 +1,160 @@
 <template>
-  <div class="space-for-header">
-    <div id="menu-background">
-      <div class="hidden-xs-only">
-        <p>
-          <img
-            src="../assets/pc-menu-bg.jpg"
-            alt="Menuの背景画像"
-            class="normal-device"
-          />
-        </p>
+  <div>
+    <div class="space-for-header">
+      <div id="menu-background">
+        <div class="hidden-xs-only">
+          <p>
+            <img
+              src="../assets/pc-menu-bg.jpg"
+              alt="Menuの背景画像"
+              class="normal-device"
+            />
+          </p>
 
-        <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
-          <v-list-item-group v-model="selectedItem" color="#b60000">
-            <v-list-item
-              v-for="(burger, i) in burgers"
-              :key="`first-${i}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title
-                  v-text="burger.text"
-                  :class="`font-weight-bold text-h5 ${burger.name}`"
-                  @click="showBurgerImg(burger.name)"
-                  @mousedown="deleteShowUp()"
-                ></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item
-              v-for="(item, j) in otherItems"
-              :key="`second-${j}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title
-                  v-text="item.text"
-                  class="font-weight-bold text-h5"
-                  @click="
-                    showOtherImg(
-                      item.name,
-                      item.description,
-                      item.text
-                    )
-                  "
-                ></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-        <p class="burger-name">{{ currentBurger.toUpperCase() }}</p>
-        <div class="picture-area">
-          <p class="burger-picture">
-            <img
-              :src="require(`../assets/${currentBurger}.png`)"
-              :alt="`${currentBurger}の画像`"
-              class="burger-img"
-            />
-          </p>
-        </div>
-        <transition>
-          <div class="modal-window" v-show="show">
-            <div class="mask" v-on:click="show = !show">
-              <div class="other-picture">
-                <img
-                  :src="require(`../assets/${currentOther}.png`)"
-                  :alt="`${currentOther}の画像`"
-                />
-                <div class="other-description">
-                  <h2 class="text-center mb-1">
-                    {{ currentTitle }}
-                  </h2>
-                  {{ currentDescription }}
+          <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
+            <v-list-item-group v-model="selectedItem" color="#b60000">
+              <v-list-item
+                v-for="(burger, i) in burgers"
+                :key="`first-${i}`"
+              >
+                <v-list-item-content>
+                  <v-list-item-title
+                    v-text="burger.text"
+                    :class="`font-weight-bold text-h5 ${burger.name}`"
+                    @click="showBurgerImg(burger.name)"
+                    @mousedown="deleteShowUp()"
+                  ></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item
+                v-for="(item, j) in otherItems"
+                :key="`second-${j}`"
+              >
+                <v-list-item-content>
+                  <v-list-item-title
+                    v-text="item.text"
+                    class="font-weight-bold text-h5"
+                    @click="
+                      showOtherImg(
+                        item.name,
+                        item.description,
+                        item.text
+                      )
+                    "
+                  ></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+          <p class="burger-name">{{ currentBurger.toUpperCase() }}</p>
+          <div class="picture-area">
+            <p class="burger-picture">
+              <img
+                :src="require(`../assets/${currentBurger}.png`)"
+                :alt="`${currentBurger}の画像`"
+                class="burger-img"
+              />
+            </p>
+          </div>
+          <transition>
+            <div class="modal-window" v-show="show">
+              <div class="mask" v-on:click="show = !show">
+                <div class="other-picture">
+                  <img
+                    :src="require(`../assets/${currentOther}.png`)"
+                    :alt="`${currentOther}の画像`"
+                  />
+                  <div class="other-description">
+                    <h2 class="text-center mb-1">
+                      {{ currentTitle }}
+                    </h2>
+                    {{ currentDescription }}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </transition>
+          </transition>
+        </div>
       </div>
-      <div class="hidden-sm-and-up">
-        <p>
-          <img
-            src="../assets/mobile-menu-bg.jpg"
-            alt="Menuの背景画像"
-            class="small-device"
-          />
-        </p>
-        <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
-          <v-list-item-group v-model="selectedItem" color="#b60000">
-            <v-list-item
-              v-for="(burger, i) in burgers"
-              :key="`first-${i}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title
-                  v-text="burger.text"
-                  :class="
-                    `font-weight-bold text-capture ${burger.name}`
-                  "
-                  @click="showBurgerImg(burger.name)"
-                  @mousedown="deleteShowUp()"
-                ></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item
-              v-for="(item, j) in otherItems"
-              :key="`second-${j}`"
-            >
-              <v-list-item-content>
-                <v-list-item-title
-                  v-text="item.text"
-                  class="font-weight-bold text-capture"
-                  @click="
-                    showOtherImg(
-                      item.name,
-                      item.description,
-                      item.text
-                    )
-                  "
-                ></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-        <p class="burger-name-mb">
-          {{ currentBurger.toUpperCase() }}
-        </p>
-        <div class="picture-area-mb">
-          <p class="burger-picture-mb">
+    </div>
+    <div class="space-for-header-mb">
+      <div id="menu-background">
+        <div class="hidden-sm-and-up">
+          <p>
             <img
-              :src="require(`../assets/${currentBurger}.png`)"
-              :alt="`${currentBurger}の画像`"
-              class="burger-img"
+              src="../assets/mobile-menu-bg.jpg"
+              alt="Menuの背景画像"
+              class="small-device"
             />
           </p>
-        </div>
-        <transition>
-          <div class="modal-window" v-show="show">
-            <div class="mask" v-on:click="show = !show">
-              <div class="other-picture-mb">
-                <img
-                  :src="require(`../assets/${currentOther}.png`)"
-                  :alt="`${currentOther}の画像`"
-                />
-                <div class="other-description-mb">
-                  <h2 class="text-center mb-1">
-                    {{ currentTitle }}
-                  </h2>
-                  {{ currentDescription }}
+          <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
+            <v-list-item-group v-model="selectedItem" color="#b60000">
+              <v-list-item
+                v-for="(burger, i) in burgers"
+                :key="`first-${i}`"
+              >
+                <v-list-item-content>
+                  <v-list-item-title
+                    v-text="burger.text"
+                    :class="
+                      `font-weight-bold text-capture ${burger.name}`
+                    "
+                    @click="showBurgerImg(burger.name)"
+                    @mousedown="deleteShowUp()"
+                  ></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item
+                v-for="(item, j) in otherItems"
+                :key="`second-${j}`"
+              >
+                <v-list-item-content>
+                  <v-list-item-title
+                    v-text="item.text"
+                    class="font-weight-bold text-capture"
+                    @click="
+                      showOtherImg(
+                        item.name,
+                        item.description,
+                        item.text
+                      )
+                    "
+                  ></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+          <p class="burger-name-mb">
+            {{ currentBurger.toUpperCase() }}
+          </p>
+          <div class="picture-area-mb">
+            <p class="burger-picture-mb">
+              <img
+                :src="require(`../assets/${currentBurger}.png`)"
+                :alt="`${currentBurger}の画像`"
+                class="burger-img"
+              />
+            </p>
+          </div>
+          <transition>
+            <div class="modal-window" v-show="show">
+              <div class="mask" v-on:click="show = !show">
+                <div class="other-picture-mb">
+                  <img
+                    :src="require(`../assets/${currentOther}.png`)"
+                    :alt="`${currentOther}の画像`"
+                  />
+                  <div class="other-description-mb">
+                    <h2 class="text-center mb-1">
+                      {{ currentTitle }}
+                    </h2>
+                    {{ currentDescription }}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </transition>
+          </transition>
+        </div>
       </div>
     </div>
   </div>

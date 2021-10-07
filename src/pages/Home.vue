@@ -1,40 +1,52 @@
 <template>
-  <div class="space-for-header">
-    <div id="images-area">
-      <h1 class="text-center">
-        <span>QUALITY</span><br />
-        YOU CAN TASTE
-      </h1>
-      <p class="hidden-xs-only">
-        <img
-          src="../assets/home-bg.jpg"
-          alt="Homeの背景画像"
-          class="normal-device home-bg-img"
-        />
-        <img
-          src="../assets/combo.png"
-          alt="バーガーセットの画像"
-          class="combo-img"
-        />
-        <button class="view-menu-btn" @click="enter">
-          VIEW OUR MENU
-        </button>
-      </p>
-      <p class="hidden-sm-and-up">
-        <img
-          src="../assets/home-bg.jpg"
-          alt="Homeの背景画像"
-          class="small-device home-bg-img"
-        />
-        <img
-          src="../assets/combo.png"
-          alt="バーガーセットの画像"
-          class="combo-img"
-        />
-        <button class="view-menu-btn" @click="enter">
-          VIEW OUR MENU
-        </button>
-      </p>
+  <div>
+    <div class="space-for-header">
+      <div class="images-area">
+        <h1 class="text-center">
+          <span>QUALITY</span><br />
+          YOU CAN TASTE
+        </h1>
+        <p class="hidden-xs-only">
+          <img
+            src="../assets/home-bg.jpg"
+            alt="Homeの背景画像"
+            class="normal-device home-bg-img"
+          />
+          <img
+            src="../assets/combo.png"
+            alt="バーガーセットの画像"
+            class="combo-img"
+          />
+          <button class="view-menu-btn" @click="enter">
+            VIEW OUR MENU
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <div class="space-for-header-mb">
+      <div class="images-area">
+        <h1 class="text-center">
+          <span>QUALITY</span><br />
+          YOU CAN TASTE
+        </h1>
+
+        <p class="hidden-sm-and-up">
+          <img
+            src="../assets/home-bg.jpg"
+            alt="Homeの背景画像"
+            class="small-device home-bg-img"
+          />
+          <img
+            src="../assets/combo.png"
+            alt="バーガーセットの画像"
+            class="combo-img"
+          />
+          <button class="view-menu-btn" @click="enter">
+            VIEW OUR MENU
+          </button>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +66,7 @@ export default {
         '.view-menu-btn'
       );
       const comboImgs = this.$el.querySelectorAll('.combo-img');
-      const h1 = this.$el.querySelector('h1');
+      const h1s = this.$el.querySelectorAll('h1');
       const homeBGImgs = this.$el.querySelectorAll('.home-bg-img');
 
       function promiseZero() {
@@ -80,7 +92,9 @@ export default {
       function promiseTwo() {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(h1.classList.add('clear-to-left'));
+            h1s.forEach((h1) => {
+              resolve(h1.classList.add('clear-to-left'));
+            });
           }, 400);
         });
       }
@@ -147,7 +161,7 @@ export default {
     format('truetype');
 }
 
-#images-area {
+.images-area {
   position: relative;
 }
 
