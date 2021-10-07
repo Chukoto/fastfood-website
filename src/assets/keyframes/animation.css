@@ -1,3 +1,29 @@
+/* 共通 */
+.space-for-header {
+  margin-top: 112px;
+}
+
+/* ====================
+Header.vueのアニメーション
+==================== */
+@keyframes fold {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes open {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
 /* ====================
 Home.vueのアニメーション
 ==================== */
