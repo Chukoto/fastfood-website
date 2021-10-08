@@ -561,11 +561,10 @@ h2 {
   color: #b60000;
   font-size: 24px;
   margin-top: 400px;
+  margin-bottom: 20px;
 }
 
 h2.h2-mb {
-  color: #b60000;
-  font-size: 24px;
   margin-top: 70vw;
 }
 
