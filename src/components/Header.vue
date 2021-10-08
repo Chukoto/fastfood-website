@@ -57,7 +57,7 @@ export default {
         { title: 'MENU', link: { name: 'Menu' } },
         { title: 'HISTORY', link: { name: 'Menu' } },
         { title: 'EMPLOYMENT', link: { name: 'Menu' } },
-        { title: 'CONTACT', link: { name: 'Menu' } },
+        { title: 'CONTACT', link: { name: 'Contact' } },
       ],
       smallScreen: 'hidden-sm-and-down',
       mediumScreen: 'hidden-md-and-up hidden-xs-only',
@@ -75,7 +75,6 @@ export default {
       const header = document.querySelector('.header');
       this.preScrollY = this.currentScrollY;
       this.currentScrollY = window.scrollY;
-      console.log(window.scrollY);
       if (window.scrollY > 75) {
         if (this.preScrollY < this.currentScrollY) {
           header.classList.remove('fold');
