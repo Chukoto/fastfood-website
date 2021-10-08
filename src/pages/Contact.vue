@@ -237,14 +237,14 @@
                   <v-btn
                     color="green darken-1"
                     text
-                    @click="multipleHandler()"
+                    @click="disagreeHandler()"
                   >
                     Disagree
                   </v-btn>
                   <v-btn
                     color="green darken-1"
                     text
-                    @click="multipleHandler()"
+                    @click="agreeHandler()"
                   >
                     Agree
                   </v-btn>
@@ -341,13 +341,13 @@ export default {
   },
 
   methods: {
-    multipleHandler() {
-      this.checker();
+    disagreeHandler() {
+      this.checkbox = false;
       this.closer();
     },
-
-    checker() {
-      this.checkbox = !this.checkbox;
+    agreeHandler() {
+      this.checkbox = true;
+      this.closer();
     },
 
     closer() {
