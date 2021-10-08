@@ -117,25 +117,20 @@ export default {
       }
 
       promiseZero()
-        .then((zero) => {
-          console.log(zero);
+        .then(() => {
           return promiseOne();
         })
-        .then((one) => {
-          console.log(one);
+        .then(() => {
           return promiseTwo();
         })
-        .then((two) => {
-          console.log(two);
+        .then(() => {
           return promiseThree();
         })
-        .then((three) => {
-          console.log(three);
+        .then(() => {
           return promiseFour();
         })
-        .then((four) => {
+        .then(() => {
           location.href = 'http://localhost:8080/menu';
-          console.log(four);
           // comboImgs.forEach((img) => {
           //   img.classList.remove('clear-to-right');
           // });

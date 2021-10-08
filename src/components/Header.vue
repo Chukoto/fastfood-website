@@ -75,7 +75,6 @@ export default {
       const header = document.querySelector('.header');
       this.preScrollY = this.currentScrollY;
       this.currentScrollY = window.scrollY;
-      console.log(window.scrollY);
       if (window.scrollY > 75) {
         if (this.preScrollY < this.currentScrollY) {
           header.classList.remove('fold');
