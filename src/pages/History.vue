@@ -12,7 +12,9 @@
             <p>
               <img
                 :src="require(`../assets/${content.year}.jpg`)"
-                alt=""
+                :alt="`${content.year}の画像`"
+                @mousemove="tiltImage()"
+                :class="`history-image-${index}`"
               />
             </p>
             <div class="history-text">
@@ -101,6 +103,17 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    tiltImage: function() {
+      const targetImage = [];
+      for (let i = 0; i < this.contents.length; i++) {
+        targetImage[i] = document.querySelector(
+          `.history-image-${i}`
+        );
+      }
+      console.log(targetImage);
+    },
   },
 };
 </script>
