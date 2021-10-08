@@ -375,6 +375,36 @@
           </v-col>
         </v-row>
       </div>
+      <v-row justify="center">
+        <v-col class="text-center" cols="12" sm="4">
+          <v-icon class="icon-color" size="70">mdi-phone</v-icon>
+          <h3>CALL CUSTOMER SERVICE</h3>
+          <p>
+            To speak to a professional Customer Service Associate,
+            call us at x-xxx-xxx-xxxx between:
+          </p>
+          <ul class="hidden-xs-only">
+            <li>Sunday to Thursday: 8am - 1am</li>
+            <li>Friday to Saturday: 8am to 1:30am</li>
+          </ul>
+          <ul class="hidden-sm-and-up" style="list-style: none;">
+            <li>Sunday to Thursday: 8am - 1am</li>
+            <li>Friday to Saturday: 8am to 1:30am</li>
+          </ul>
+        </v-col>
+
+        <v-divider class="hidden-xs-only" inset vertical></v-divider>
+        <v-divider class="hidden-sm-and-up"></v-divider>
+
+        <v-col class="text-center" cols="12" sm="4">
+          <v-icon class="icon-color" size="70">mdi-mailbox</v-icon>
+          <h3>WRITE TO CUSTOMER SERVICE</h3>
+          <p>
+            Burgers Corporate Office xxxx Campus Drive, 9th Floor
+            Irvine, CA xxxxx
+          </p>
+        </v-col>
+      </v-row>
     </div>
   </div>
 </template>
@@ -596,11 +626,16 @@ h2.h2-mb {
   border: 6px solid #b60000;
   border-radius: 8px;
   padding: 4px;
+  margin-bottom: 30px;
 }
 
 .inner-border {
   border: 2px solid #b60000;
   border-radius: 8px;
   padding: 50px;
+}
+
+.icon-color {
+  color: #b60000;
 }
 </style>
