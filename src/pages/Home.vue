@@ -149,7 +149,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../assets/keyframes/animation.css';
 @font-face {
   font-family: Cormorant Garamond;
   src: url('../assets/fonts/CormorantGaramond-SemiBoldItalic.ttf')

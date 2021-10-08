@@ -243,7 +243,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../assets/keyframes/animation.css';
 #menu-background {
   position: relative;
 }

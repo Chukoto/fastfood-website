@@ -585,8 +585,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../assets/keyframes/animation.css';
-
 h2 {
   color: #b60000;
   font-size: 24px;

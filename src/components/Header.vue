@@ -90,7 +90,6 @@ export default {
 </script>
 
 <style>
-@import '../assets/keyframes/animation.css';
 .header {
   position: fixed;
   width: 100%;
