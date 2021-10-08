@@ -1,15 +1,31 @@
 <template>
   <div>
     <div class="space-for-header">
-      <div class="img-area">
-        <p class="contact-img">
-          <img src="../assets/contact-header.jpg" alt="" />
-        </p>
+      <div class="hidden-xs-only">
+        <div class="img-area">
+          <p class="contact-img">
+            <img src="../assets/contact-header.jpg" alt="" />
+          </p>
+        </div>
+      </div>
+      <div class="hidden-sm-and-up">
+        <div class="img-area-mb">
+          <p class="contact-img">
+            <img src="../assets/contact-header.jpg" alt="" />
+          </p>
+        </div>
       </div>
       <div class="contact-content">
-        <h2 class="text-center">
-          HI, HOW ARE YOU? TELL US HOW WE CAN HELP.
-        </h2>
+        <div class="hidden-xs-only">
+          <h2 class="text-center">
+            HI, HOW ARE YOU? TELL US HOW WE CAN HELP.
+          </h2>
+        </div>
+        <div class="hidden-sm-and-up">
+          <h2 class="text-center h2-mb">
+            HI, HOW ARE YOU? TELL US HOW WE CAN HELP.
+          </h2>
+        </div>
         <v-row justify="center">
           <v-col cols="12" sm="8">
             <form class="contact-form">
@@ -544,12 +560,25 @@ export default {
 h2 {
   color: #b60000;
   font-size: 24px;
-  margin-top: 400px; /* mobile版はサイズ変える必要がある */
+  margin-top: 400px;
+}
+
+h2.h2-mb {
+  color: #b60000;
+  font-size: 24px;
+  margin-top: 70vw;
 }
 
 .img-area {
   position: absolute;
   top: 99px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.img-area-mb {
+  position: absolute;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
 }
