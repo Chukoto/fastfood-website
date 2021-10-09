@@ -129,3 +129,25 @@ Menu.vueのアニメーション
 .v-leave-to {
   opacity: 0;
 }
+
+/* ====================
+History.vueのアニメーション
+==================== */
+
+@keyframes shadow-in {
+  0% {
+    box-shadow: 0px 0px 10px #ccc;
+  }
+  100% {
+    box-shadow: 0px 0px 10px #666;
+  }
+}
+
+@keyframes shadow-out {
+  0% {
+    box-shadow: 0px 0px 10px #666;
+  }
+  100% {
+    box-shadow: 0px 0px 10px #ccc;
+  }
+}
