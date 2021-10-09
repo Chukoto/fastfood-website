@@ -7,28 +7,27 @@
           md="6"
           v-for="(content, index) in contents"
           :key="index"
+          @mousemove="tiltContent($event)"
         >
-          <div
-            class="history-content"
-            :class="`content-${index}`"
-            @mousemove="tiltContent($event)"
-          >
-            <p>
-              <img
-                :src="require(`../assets/${content.year}.jpg`)"
-                :alt="`${content.year}の画像`"
-              />
-            </p>
-            <div class="history-text">
-              <h4 class="font-color text-h4 font-weight-bold">
-                {{ content.year }}
-              </h4>
-              <h5 class="font-color text-h5 font-weight-bold mb-5">
-                {{ content.title }}
-              </h5>
+          <div class="article">
+            <div class="content">
               <p>
-                {{ content.text }}
+                <img
+                  :src="require(`../assets/${content.year}.jpg`)"
+                  :alt="`${content.year}の画像`"
+                />
               </p>
+              <div class="history-text">
+                <h4 class="font-color text-h4 font-weight-bold">
+                  {{ content.year }}
+                </h4>
+                <h5 class="font-color text-h5 font-weight-bold mb-5">
+                  {{ content.title }}
+                </h5>
+                <p>
+                  {{ content.text }}
+                </p>
+              </div>
             </div>
           </div>
         </v-col>
@@ -105,31 +104,25 @@ export default {
         },
       ],
       targetContents: [],
+      content1: '',
     };
   },
-  mounted() {
-    for (let i = 0; i < this.contents.length; i++) {
-      this.targetContents[i] = document.querySelector(
-        `.content-${i}`
-      );
-    }
-  },
+  mounted() {},
   methods: {
     tiltContent: function(e) {
-      console.log('X' + e.offsetX);
-      console.log('Y' + e.offsetY);
+      let xAxis = (window.innerWidth / 2 - e.clientX) / 65;
+      let yAxis = (window.innerHeight / 2 - e.clientY) / 65;
+      e.currentTarget.style.transform = `rotateX(${xAxis}deg) rotateY(${yAxis}deg)`;
     },
   },
 };
 </script>
 
 <style scoped>
-.history-content {
+.article {
   width: 80%;
   height: auto;
-  border: 3px solid #b60000;
   background-color: #fff;
-  box-shadow: 1px 1px 5px #aaa;
   margin: 30px auto;
 }
 
@@ -146,5 +139,10 @@ p img {
 
 .font-color {
   color: #b60000;
+}
+
+.content {
+  border: 3px solid #b60000;
+  box-shadow: 0px 0px 10px #666;
 }
 </style>
