@@ -8,13 +8,15 @@
           v-for="(content, index) in contents"
           :key="index"
         >
-          <div class="history-content">
+          <div
+            class="history-content"
+            :class="`content-${index}`"
+            @mousemove="tiltContent($event)"
+          >
             <p>
               <img
                 :src="require(`../assets/${content.year}.jpg`)"
                 :alt="`${content.year}の画像`"
-                @mousemove="tiltImage()"
-                :class="`history-image-${index}`"
               />
             </p>
             <div class="history-text">
@@ -102,17 +104,20 @@ export default {
             'Celebrates 70 years since its first location opened its doors on October 22, 1948. In those seven decades, that single store has grown into 334 locations in six states: California, Nevada, Arizona, Utah, Texas and Oregon. Still family-owned, and now guided by Harry and Esther Snyder’s granddaughter, Lynsi, the company enters its eighth decade with the same commitment to its customers and Associates, and the same dedication to serving only the highest quality burgers, fries and shakes made the old-fashioned way.',
         },
       ],
+      targetContents: [],
     };
   },
+  mounted() {
+    for (let i = 0; i < this.contents.length; i++) {
+      this.targetContents[i] = document.querySelector(
+        `.content-${i}`
+      );
+    }
+  },
   methods: {
-    tiltImage: function() {
-      const targetImage = [];
-      for (let i = 0; i < this.contents.length; i++) {
-        targetImage[i] = document.querySelector(
-          `.history-image-${i}`
-        );
-      }
-      console.log(targetImage);
+    tiltContent: function(e) {
+      console.log('X' + e.offsetX);
+      console.log('Y' + e.offsetY);
     },
   },
 };
