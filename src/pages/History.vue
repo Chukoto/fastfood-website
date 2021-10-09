@@ -103,13 +103,11 @@ export default {
             'Celebrates 70 years since its first location opened its doors on October 22, 1948. In those seven decades, that single store has grown into 334 locations in six states: California, Nevada, Arizona, Utah, Texas and Oregon. Still family-owned, and now guided by Harry and Esther Snyder’s granddaughter, Lynsi, the company enters its eighth decade with the same commitment to its customers and Associates, and the same dedication to serving only the highest quality burgers, fries and shakes made the old-fashioned way.',
         },
       ],
-      targetContents: [],
-      content1: '',
     };
   },
   mounted() {},
   methods: {
-    tiltContent: function(e) {
+    tiltContent(e) {
       let xAxis = (window.innerWidth / 2 - e.clientX) / 65;
       let yAxis = (window.innerHeight / 2 - e.clientY) / 65;
       e.currentTarget.style.transform = `rotateX(${xAxis}deg) rotateY(${yAxis}deg)`;
