@@ -4,29 +4,69 @@
       <v-row justify="center">
         <v-col
           cols="12"
+          sm="12"
           md="6"
+          class="my-5"
           v-for="(content, index) in contents"
           :key="index"
-          @mousemove="tiltContent($event)"
         >
-          <div class="article">
-            <div class="content">
-              <p>
-                <img
-                  :src="require(`../assets/${content.year}.jpg`)"
-                  :alt="`${content.year}の画像`"
-                />
-              </p>
-              <div class="history-text">
-                <h4 class="font-color text-h4 font-weight-bold">
-                  {{ content.year }}
-                </h4>
-                <h5 class="font-color text-h5 font-weight-bold mb-5">
-                  {{ content.title }}
-                </h5>
+          <div class="hidden-xs-only">
+            <div class="article">
+              <div
+                class="content"
+                @mousemove="tiltContent($event)"
+                @mouseenter="animateIn($event)"
+                @mouseleave="animateOut($event)"
+              >
                 <p>
-                  {{ content.text }}
+                  <img
+                    :src="require(`../assets/${content.year}.jpg`)"
+                    :alt="`${content.year}の画像`"
+                  />
                 </p>
+                <div class="history-text">
+                  <h4 class="font-color text-h4 font-weight-bold">
+                    {{ content.year }}
+                  </h4>
+                  <h5
+                    class="font-color text-h5 font-weight-bold mb-5"
+                  >
+                    {{ content.title }}
+                  </h5>
+                  <p>
+                    {{ content.text }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hidden-sm-and-up">
+            <div class="article-mb">
+              <div
+                class="content"
+                @mousemove="tiltContent($event)"
+                @mouseenter="animateIn($event)"
+                @mouseleave="animateOut($event)"
+              >
+                <p>
+                  <img
+                    :src="require(`../assets/${content.year}.jpg`)"
+                    :alt="`${content.year}の画像`"
+                  />
+                </p>
+                <div class="history-text">
+                  <h4 class="font-color text-h4 font-weight-bold">
+                    {{ content.year }}
+                  </h4>
+                  <h5
+                    class="font-color text-h5 font-weight-bold mb-5"
+                  >
+                    {{ content.title }}
+                  </h5>
+                  <p>
+                    {{ content.text }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -108,9 +148,21 @@ export default {
   mounted() {},
   methods: {
     tiltContent(e) {
-      let xAxis = (window.innerWidth / 2 - e.clientX) / 65;
-      let yAxis = (window.innerHeight / 2 - e.clientY) / 65;
-      e.currentTarget.style.transform = `rotateX(${xAxis}deg) rotateY(${yAxis}deg)`;
+      let xAxis = (window.innerWidth / 2 - e.clientX) / 50;
+      let yAxis = (window.innerHeight / 2 - e.clientY) / 50;
+      e.currentTarget.style.transform = `rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
+      e.currentTarget.style.transitionDelay = 'all 1s';
+    },
+    animateIn(e) {
+      e.currentTarget.style.transform = 'none';
+      e.currentTarget.classList.remove('shadow-out');
+      e.currentTarget.classList.add('shadow-in');
+    },
+    animateOut(e) {
+      e.currentTarget.transition = 'all 0.5s ease';
+      e.currentTarget.transform = `rotateY(0deg) rotateX(0deg)`;
+      e.currentTarget.classList.remove('shadow-in');
+      e.currentTarget.classList.add('shadow-out');
     },
   },
 };
@@ -118,7 +170,14 @@ export default {
 
 <style scoped>
 .article {
-  width: 80%;
+  width: 65%;
+  height: auto;
+  background-color: #fff;
+  margin: 30px auto;
+}
+
+.article-mb {
+  width: 75%;
   height: auto;
   background-color: #fff;
   margin: 30px auto;
@@ -128,6 +187,7 @@ p img {
   width: 100%;
   height: auto;
   box-shadow: 0 0 5px #aaa;
+  border-radius: 10px 10px 0 0;
 }
 
 .history-text {
@@ -140,7 +200,19 @@ p img {
 }
 
 .content {
-  border: 3px solid #b60000;
-  box-shadow: 0px 0px 10px #666;
+  box-shadow: 0px 0px 10px #ccc;
+  border-radius: 10px;
+}
+
+.shadow-in {
+  animation-name: shadow-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.shadow-out {
+  animation-name: shadow-out;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 </style>
