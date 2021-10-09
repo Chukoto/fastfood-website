@@ -55,7 +55,7 @@ export default {
         'https://www.in-n-out.com/ResourcePackages/INNOUT/content/images/logo-2021.svg?package=INNOUT',
       headerMenuList: [
         { title: 'MENU', link: { name: 'Menu' } },
-        { title: 'HISTORY', link: { name: 'Menu' } },
+        { title: 'HISTORY', link: { name: 'History' } },
         { title: 'EMPLOYMENT', link: { name: 'Menu' } },
         { title: 'CONTACT', link: { name: 'Contact' } },
       ],
@@ -90,7 +90,6 @@ export default {
 </script>
 
 <style>
-@import '../assets/keyframes/animation.css';
 .header {
   position: fixed;
   width: 100%;

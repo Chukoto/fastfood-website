@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/pages/Home';
 import Menu from '@/pages/Menu';
+import History from '@/pages/History';
 import Contact from '@/pages/Contact';
 
 Vue.use(VueRouter);
@@ -21,6 +22,11 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact,
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: History,
   },
 ];
 

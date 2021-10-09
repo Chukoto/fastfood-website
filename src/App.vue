@@ -25,3 +25,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import './assets/keyframes/animation.css';
+</style>
