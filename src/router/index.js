@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '@/pages/Home';
 import Menu from '@/pages/Menu';
 import History from '@/pages/History';
+import Employment from '@/pages/Employment';
 import Contact from '@/pages/Contact';
 
 Vue.use(VueRouter);
@@ -19,14 +20,19 @@ const routes = [
     component: Menu,
   },
   {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact,
-  },
-  {
     path: '/history',
     name: 'History',
     component: History,
+  },
+  {
+    path: '/employment',
+    name: 'Employment',
+    component: Employment,
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact,
   },
 ];
 
