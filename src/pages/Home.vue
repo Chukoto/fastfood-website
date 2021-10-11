@@ -26,11 +26,6 @@
 
     <div class="space-for-header-mb">
       <div class="images-area">
-        <h1 class="text-center">
-          <span>QUALITY</span><br />
-          YOU CAN TASTE
-        </h1>
-
         <p class="hidden-sm-and-up">
           <img
             src="../assets/home-bg.jpg"
@@ -259,5 +254,9 @@ p {
   padding: 1.2vw 7vw;
   transform: translateX(-50%);
   z-index: 2;
+}
+
+.view-menu-btn:hover {
+  opacity: 0.9;
 }
 </style>
