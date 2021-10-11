@@ -56,7 +56,7 @@ export default {
       headerMenuList: [
         { title: 'MENU', link: { name: 'Menu' } },
         { title: 'HISTORY', link: { name: 'History' } },
-        { title: 'EMPLOYMENT', link: { name: 'Menu' } },
+        { title: 'EMPLOYMENT', link: { name: 'Employment' } },
         { title: 'CONTACT', link: { name: 'Contact' } },
       ],
       smallScreen: 'hidden-sm-and-down',
