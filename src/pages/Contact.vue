@@ -375,7 +375,7 @@
           </v-col>
         </v-row>
       </div>
-      <v-row justify="center">
+      <v-row class="mb-10" justify="center">
         <v-col class="text-center" cols="12" sm="4">
           <v-icon class="icon-color" size="70">mdi-phone</v-icon>
           <h3>CALL CUSTOMER SERVICE</h3>
