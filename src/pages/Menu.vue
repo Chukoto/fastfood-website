@@ -309,7 +309,7 @@ export default {
 
 .other-picture {
   position: fixed;
-  top: 100px;
+  top: 113px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
