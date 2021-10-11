@@ -12,14 +12,14 @@
             v-for="(headerMenu, index) in headerMenuList"
             :key="index"
           >
-            <button>
+            <v-btn text x-large link class="menu-btn">
               <router-link
                 :to="headerMenu.link"
-                class="text-decoration-none"
+                class="link text-decoration-none"
               >
                 {{ headerMenu.title }}
               </router-link>
-            </button>
+            </v-btn>
           </v-col>
         </v-row>
       </div>

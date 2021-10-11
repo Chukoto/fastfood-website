@@ -19,7 +19,7 @@
             :to="sidenavMenu.link"
           >
             <v-col>
-              <a>{{ sidenavMenu.title }}</a>
+              <a class="font-weight-bold">{{ sidenavMenu.title }}</a>
             </v-col>
           </v-list-item>
         </v-row>
