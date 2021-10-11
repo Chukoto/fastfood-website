@@ -1,26 +1,35 @@
 <template>
   <div>
     <div class="space-for-header">
-      <div class="img-area">
-        <div class="employment-img">
-          <img src="../assets/employment-header.jpg" alt="" />
+      <div class="hidden-xs-only">
+        <div class="img-area">
+          <div class="employment-img">
+            <img src="../assets/employment-header.jpg" alt="" />
+            <p>
+              EMPLOYMENT
+            </p>
+          </div>
+        </div>
+        <div class="employment-introduction">
           <p>
-            EMPLOYMENT
+            {{ introduction }}
           </p>
         </div>
       </div>
-      <div class="employment-introduction">
-        <p>
-          Since 1948, we have been a great place to work and grow. Our
-          Founders, Harry and Esther Snyder, wanted not only to take
-          care of our customers but to take care of our Associates as
-          well. More than 70 years later, that focus still remains
-          firmly in place. We’re committed to offering higher starting
-          wages, great benefits and opportunities to grow. Quality is
-          our most important ingredient in everything we do, and
-          that’s why people who join our family have to be the best.
-          So what are you waiting for? Apply today!
-        </p>
+      <div class="hidden-sm-and-up">
+        <div class="img-area-mb">
+          <div class="employment-img">
+            <img src="../assets/employment-header.jpg" alt="" />
+            <p>
+              EMPLOYMENT
+            </p>
+          </div>
+        </div>
+        <div class="employment-introduction-mb">
+          <p>
+            {{ introduction }}
+          </p>
+        </div>
       </div>
       <v-row
         class="v-row my-8"
@@ -58,8 +67,7 @@
 
         <v-row class="mt-9" justify="center ">
           <v-btn
-            color="primary"
-            dark
+            style="color: #b60000"
             @click="test(department.name, department.detailContent)"
           >
             {{ department.detail }}
@@ -88,6 +96,8 @@ export default {
   data() {
     return {
       dialog: false,
+      introduction:
+        'Since 1948, we have been a great place to work and grow. Our Founders, Harry and Esther Snyder, wanted not only to take care of our customers but to take care of our Associates as well. More than 70 years later, that focus still remains firmly in place. We’re committed to offering higher starting wages, great benefits and opportunities to grow. Quality is our most important ingredient in everything we do, and that’s why people who join our family have to be the best. So what are you waiting for? Apply today!',
       departments: [
         {
           name: 'RESTAURANT EMPLOYMENT',
@@ -188,7 +198,13 @@ export default {
   top: 99px;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 100px;
+}
+
+.img-area-mb {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .employment-img {
@@ -216,6 +232,11 @@ export default {
 
 .employment-introduction {
   margin-top: 30vw;
+  padding: 180px 10vw 0px;
+}
+
+.employment-introduction-mb {
+  margin-top: 18vw;
   padding: 180px 10vw 0px;
 }
 
