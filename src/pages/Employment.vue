@@ -62,7 +62,7 @@
           </v-icon>
 
           <br />
-          {{ highlight.name }}
+          <p class="font-weight-bold">{{ highlight.name }}</p>
         </v-col>
 
         <v-row class="mt-9" justify="center ">
