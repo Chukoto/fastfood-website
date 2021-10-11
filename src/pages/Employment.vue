@@ -23,12 +23,12 @@
         </p>
       </div>
       <v-row
-        class="v-row"
+        class="v-row my-8"
         v-for="(department, index) in departments"
         :key="index"
       >
         <v-col cols="12">
-          <v-divider class="mb-7 mt-9"></v-divider>
+          <v-divider></v-divider>
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -52,17 +52,31 @@
             {{ highlight.iconName }}
           </v-icon>
 
-          <div>
-            aa
-          </div>
           <br />
           {{ highlight.name }}
         </v-col>
-        <v-col cols="12">
-          <button>
+
+        <v-row class="mt-9" justify="center ">
+          <v-btn
+            color="primary"
+            dark
+            @click="test(department.name, department.detailContent)"
+          >
             {{ department.detail }}
-          </button>
-        </v-col>
+          </v-btn>
+
+          <v-dialog v-model="dialog" max-width="500">
+            <v-card>
+              <v-card-title class="text-h5">
+                {{ currentTitle }}
+              </v-card-title>
+
+              <v-card-text>
+                {{ currentText }}
+              </v-card-text>
+            </v-card>
+          </v-dialog>
+        </v-row>
       </v-row>
     </div>
   </div>
@@ -73,12 +87,15 @@ export default {
   name: 'Employment',
   data() {
     return {
+      dialog: false,
       departments: [
         {
           name: 'RESTAURANT EMPLOYMENT',
           description:
             'We provide competitive hourly rates and a friendly team-oriented environment for our restaurant Associates. Some highlights include:',
           detail: 'LEARN MORE & APPLY',
+          detailContent:
+            "Our work environment is team-oriented, fast paced and fun. We encourage ALL of our Associates to grow with the company and to become part of our success story. That's why your success is ours! We start all of our new Associates at a competitive wage for one simple reason...you are important to us! And our commitment to a higher starting wage is just one of the ways in which we show it. Another way is through offering excellent part-time and full-time benefits like flexible schedules to accommodate school and other activities, paid vacations, free meals, comprehensive training, and a 401k plan.",
           highlights: [
             {
               name: 'Competitive Wages',
@@ -103,6 +120,8 @@ export default {
           description:
             'Working in one of our Support Departments offers outstanding career opportunities as well as a friendly, family-oriented environment. Some highlights include:',
           detail: 'LEARN MORE',
+          detailContent:
+            'Since 1948, we have maintained a simple philosophy — serve only the highest quality product, prepare it in a clean and sparkling environment, and serve it in a warm and friendly manner. We have built a reputation for fresh, made-to-order foods prepared and served by friendly, well-trained Associates. Today, our Baldwin Park complex and Irvine offices serve as our corporate facilities. We also have several satellite locations in Lathrop, California; Las Vegas, Nevada; Phoenix, Arizona; Draper, Utah, and Dallas, Texas that support our stores. Working in one of our Support Departments offers outstanding career opportunities as well as a friendly, family-oriented environment. Because our Associates are important to us, you can expect a competitive salary and a comprehensive part-time and full-time benefits package.',
           highlights: [
             {
               name: 'Competitive Wages',
@@ -127,6 +146,8 @@ export default {
           description:
             'We provide competitive hourly rates and a friendly team-oriented environment for our Cookout Associates. Some highlights include:',
           detail: 'LEARN MORE',
+          detailContent:
+            "Our work environment is team-oriented, fast paced and fun. We encourage ALL of our Associates to grow with the company, to become part of our success story. That's why your success is ours! We start all our new Associates at a minimum of $13.00 an hour for one simple reason...you are important to us! And our commitment to a higher starting wage is just one of the ways in which we show it. Another way is through offering excellent part-time and full-time benefits like flexible schedules to accommodate school and other activities, paid vacations, free meals, comprehensive training, and a 401k plan.",
           highlights: [
             {
               name: 'Starting Wage of $15/hr',
@@ -147,7 +168,16 @@ export default {
           ],
         },
       ],
+      currentTitle: 'test',
+      currentText: 'testaa',
     };
+  },
+  methods: {
+    test: function(name, content) {
+      this.currentTitle = name;
+      this.currentText = content;
+      this.dialog = true;
+    },
   },
 };
 </script>
