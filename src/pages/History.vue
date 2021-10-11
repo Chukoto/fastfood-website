@@ -14,7 +14,6 @@
             <div class="article">
               <div
                 class="content"
-                @mousemove="tiltContent($event)"
                 @mouseenter="animateIn($event)"
                 @mouseleave="animateOut($event)"
               >
@@ -147,12 +146,6 @@ export default {
   },
   mounted() {},
   methods: {
-    tiltContent(e) {
-      let xAxis = (window.innerWidth / 2 - e.clientX) / 40;
-      let yAxis = (window.innerHeight / 2 - e.clientY) / 40;
-      e.currentTarget.style.transform = `rotateX(${yAxis}deg) rotateY(${xAxis}deg)`;
-      e.currentTarget.style.transitionDelay = 'all 1s';
-    },
     animateIn(e) {
       e.currentTarget.style.transform = 'none';
       e.currentTarget.classList.remove('shadow-out');
