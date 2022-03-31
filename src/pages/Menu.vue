@@ -5,7 +5,7 @@
         <div class="hidden-xs-only">
           <p>
             <img
-              src="../assets/pc-menu-bg.jpg"
+              src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/pc-menu-bg.jpg?raw=true"
               alt="Menuの背景画像"
               class="normal-device"
             />
@@ -13,10 +13,7 @@
 
           <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
             <v-list-item-group v-model="selectedItem" color="#b60000">
-              <v-list-item
-                v-for="(burger, i) in burgers"
-                :key="`first-${i}`"
-              >
+              <v-list-item v-for="(burger, i) in burgers" :key="`first-${i}`">
                 <v-list-item-content>
                   <v-list-item-title
                     v-text="burger.text"
@@ -26,21 +23,12 @@
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item
-                v-for="(item, j) in otherItems"
-                :key="`second-${j}`"
-              >
+              <v-list-item v-for="(item, j) in otherItems" :key="`second-${j}`">
                 <v-list-item-content>
                   <v-list-item-title
                     v-text="item.text"
                     class="font-weight-bold text-h5"
-                    @click="
-                      showOtherImg(
-                        item.name,
-                        item.description,
-                        item.text
-                      )
-                    "
+                    @click="showOtherImg(item.name, item.description, item.text)"
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -50,7 +38,7 @@
           <div class="picture-area">
             <p class="burger-picture">
               <img
-                :src="require(`../assets/${currentBurger}.png`)"
+                :src="`https://github.com/Chukoto/fastfood-website/blob/main/src/assets/${currentBurger}.png?raw=true`"
                 :alt="`${currentBurger}の画像`"
                 class="burger-img"
               />
@@ -61,7 +49,7 @@
               <div class="mask" v-on:click="show = !show">
                 <div class="other-picture">
                   <img
-                    :src="require(`../assets/${currentOther}.png`)"
+                    :src="`https://github.com/Chukoto/fastfood-website/blob/main/src/assets/${currentOther}.png?raw=true`"
                     :alt="`${currentOther}の画像`"
                   />
                   <div class="other-description">
@@ -82,43 +70,29 @@
         <div class="hidden-sm-and-up">
           <p>
             <img
-              src="../assets/mobile-menu-bg.jpg"
+              src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/mobile-menu-bg.jpg?raw=true"
               alt="Menuの背景画像"
               class="small-device"
             />
           </p>
           <v-list id="v-list" color="rgb(0, 0, 0, 0.0)">
             <v-list-item-group v-model="selectedItem" color="#b60000">
-              <v-list-item
-                v-for="(burger, i) in burgers"
-                :key="`first-${i}`"
-              >
+              <v-list-item v-for="(burger, i) in burgers" :key="`first-${i}`">
                 <v-list-item-content>
                   <v-list-item-title
                     v-text="burger.text"
-                    :class="
-                      `font-weight-bold text-capture ${burger.name}`
-                    "
+                    :class="`font-weight-bold text-capture ${burger.name}`"
                     @click="showBurgerImg(burger.name)"
                     @mousedown="deleteShowUp()"
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item
-                v-for="(item, j) in otherItems"
-                :key="`second-${j}`"
-              >
+              <v-list-item v-for="(item, j) in otherItems" :key="`second-${j}`">
                 <v-list-item-content>
                   <v-list-item-title
                     v-text="item.text"
                     class="font-weight-bold text-capture"
-                    @click="
-                      showOtherImg(
-                        item.name,
-                        item.description,
-                        item.text
-                      )
-                    "
+                    @click="showOtherImg(item.name, item.description, item.text)"
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -130,7 +104,7 @@
           <div class="picture-area-mb">
             <p class="burger-picture-mb">
               <img
-                :src="require(`../assets/${currentBurger}.png`)"
+                :src="`https://github.com/Chukoto/fastfood-website/blob/main/src/assets/${currentBurger}.png?raw=true`"
                 :alt="`${currentBurger}の画像`"
                 class="burger-img"
               />
@@ -141,7 +115,7 @@
               <div class="mask" v-on:click="show = !show">
                 <div class="other-picture-mb">
                   <img
-                    :src="require(`../assets/${currentOther}.png`)"
+                    :src="`https://github.com/Chukoto/fastfood-website/blob/main/src/assets/${currentOther}.png?raw=true`"
                     :alt="`${currentOther}の画像`"
                   />
                   <div class="other-description-mb">
@@ -189,8 +163,7 @@ export default {
         {
           name: 'frenchfries',
           text: 'FRENCH FRIES',
-          description:
-            'FRESH, HAND-CUT POTATOES PREPARED IN 100% SUNFLOWER OIL',
+          description: 'FRESH, HAND-CUT POTATOES PREPARED IN 100% SUNFLOWER OIL',
         },
         {
           name: 'beverages',
@@ -201,8 +174,7 @@ export default {
         {
           name: 'shakes',
           text: 'SHAKES',
-          description:
-            'CHOCOLATE, STRAWBERRY OR VANILLA MADE WITH REAL ICE CREAM',
+          description: 'CHOCOLATE, STRAWBERRY OR VANILLA MADE WITH REAL ICE CREAM',
         },
       ],
     };

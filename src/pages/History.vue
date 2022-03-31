@@ -2,24 +2,13 @@
   <div>
     <div class="space-for-header">
       <v-row justify="center">
-        <v-col
-          cols="12"
-          sm="12"
-          md="6"
-          class="my-5"
-          v-for="(content, index) in contents"
-          :key="index"
-        >
+        <v-col cols="12" sm="12" md="6" class="my-5" v-for="(content, index) in contents" :key="index">
           <div class="hidden-xs-only">
             <div class="article">
-              <div
-                class="content"
-                @mouseenter="animateIn($event)"
-                @mouseleave="animateOut($event)"
-              >
+              <div class="content" @mouseenter="animateIn($event)" @mouseleave="animateOut($event)">
                 <p>
                   <img
-                    :src="require(`../assets/${content.year}.jpg`)"
+                    :src="`https://github.com/Chukoto/fastfood-website/blob/main/src/assets/${content.year}.jpg?raw=true`"
                     :alt="`${content.year}の画像`"
                   />
                 </p>
@@ -27,9 +16,7 @@
                   <h4 class="font-color text-h4 font-weight-bold">
                     {{ content.year }}
                   </h4>
-                  <h5
-                    class="font-color text-h5 font-weight-bold mb-5"
-                  >
+                  <h5 class="font-color text-h5 font-weight-bold mb-5">
                     {{ content.title }}
                   </h5>
                   <p>
@@ -49,7 +36,7 @@
               >
                 <p>
                   <img
-                    :src="require(`../assets/${content.year}.jpg`)"
+                    :src="`https://github.com/Chukoto/fastfood-website/blob/main/src/assets/${content.year}.jpg?raw=true`"
                     :alt="`${content.year}の画像`"
                   />
                 </p>
@@ -57,9 +44,7 @@
                   <h4 class="font-color text-h4 font-weight-bold">
                     {{ content.year }}
                   </h4>
-                  <h5
-                    class="font-color text-h5 font-weight-bold mb-5"
-                  >
+                  <h5 class="font-color text-h5 font-weight-bold mb-5">
                     {{ content.title }}
                   </h5>
                   <p>

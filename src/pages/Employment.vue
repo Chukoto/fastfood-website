@@ -4,7 +4,7 @@
       <div class="hidden-xs-only">
         <div class="img-area">
           <div class="employment-img">
-            <img src="../assets/employment-header.jpg" alt="" />
+            <img src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/employment-header.jpg?raw=true" alt="" />
             <p>
               EMPLOYMENT
             </p>
@@ -19,7 +19,7 @@
       <div class="hidden-sm-and-up">
         <div class="img-area-mb">
           <div class="employment-img">
-            <img src="../assets/employment-header.jpg" alt="" />
+            <img src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/employment-header.jpg?raw=true" alt="" />
             <p>
               EMPLOYMENT
             </p>
@@ -31,11 +31,7 @@
           </p>
         </div>
       </div>
-      <v-row
-        class="v-row my-8"
-        v-for="(department, index) in departments"
-        :key="index"
-      >
+      <v-row class="v-row my-8" v-for="(department, index) in departments" :key="index">
         <v-col cols="12">
           <v-divider></v-divider>
         </v-col>
@@ -50,13 +46,7 @@
           </p>
         </v-col>
 
-        <v-col
-          cols="12"
-          sm="3"
-          v-for="(highlight, index) in department.highlights"
-          :key="index"
-          class="text-center"
-        >
+        <v-col cols="12" sm="3" v-for="(highlight, index) in department.highlights" :key="index" class="text-center">
           <v-icon style="color: #b60000" size="70">
             {{ highlight.iconName }}
           </v-icon>
@@ -66,10 +56,7 @@
         </v-col>
 
         <v-row class="mt-9" justify="center ">
-          <v-btn
-            style="color: #b60000"
-            @click="test(department.name, department.detailContent)"
-          >
+          <v-btn style="color: #b60000" @click="test(department.name, department.detailContent)">
             {{ department.detail }}
           </v-btn>
 

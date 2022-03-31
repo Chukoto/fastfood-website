@@ -8,12 +8,12 @@
         </h1>
         <p class="hidden-xs-only">
           <img
-            src="../assets/home-bg.jpg"
+            src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/home-bg.jpg?raw=true"
             alt="Homeの背景画像"
             class="normal-device home-bg-img"
           />
           <img
-            src="../assets/combo.png"
+            src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/combo.png?raw=true"
             alt="バーガーセットの画像"
             class="combo-img"
           />
@@ -28,12 +28,12 @@
       <div class="images-area">
         <p class="hidden-sm-and-up">
           <img
-            src="../assets/home-bg.jpg"
+            src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/home-bg.jpg?raw=true"
             alt="Homeの背景画像"
             class="small-device home-bg-img"
           />
           <img
-            src="../assets/combo.png"
+            src="https://github.com/Chukoto/fastfood-website/blob/main/src/assets/combo.png?raw=true"
             alt="バーガーセットの画像"
             class="combo-img"
           />
@@ -57,9 +57,7 @@ export default {
   },
   methods: {
     enter: function() {
-      const viewMenuBtns = this.$el.querySelectorAll(
-        '.view-menu-btn'
-      );
+      const viewMenuBtns = this.$el.querySelectorAll('.view-menu-btn');
       const comboImgs = this.$el.querySelectorAll('.combo-img');
       const h1s = this.$el.querySelectorAll('h1');
       const homeBGImgs = this.$el.querySelectorAll('.home-bg-img');
@@ -125,7 +123,7 @@ export default {
           return promiseFour();
         })
         .then(() => {
-          location.href = 'http://localhost:8080/menu';
+          location.href = '/menu';
           // comboImgs.forEach((img) => {
           //   img.classList.remove('clear-to-right');
           // });
@@ -146,8 +144,7 @@ export default {
 <style scoped>
 @font-face {
   font-family: Cormorant Garamond;
-  src: url('../assets/fonts/CormorantGaramond-SemiBoldItalic.ttf')
-    format('truetype');
+  src: url('../assets/fonts/CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
 }
 
 .images-area {
